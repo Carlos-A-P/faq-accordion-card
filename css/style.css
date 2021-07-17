@@ -1,0 +1,161 @@
+:root {
+	/* text */
+	--vddB: hsl(238, 29%, 16%);
+	--sRed: hsl(14, 88%, 65%);
+	--vdgBlue: hsl(237, 12%, 33%);
+	--dgBlue: hsl(240, 6%, 50%);
+	/* background gradient */
+	--sViolet: hsl(273, 75%, 66%);
+	--sBlue: hsl(240, 73%, 65%);
+	/* dividers */
+	--lgBlue: hsl(240, 5%, 91%);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: "Kumbh Sans", sans-serif;
+	font-size: 12px;
+}
+
+body {
+	height: 130vh;
+	background: linear-gradient(var(--sViolet), var(--sBlue)) no-repeat;
+}
+
+main {
+	padding: 150px 2.5rem 0;
+}
+
+.wrapper {
+	background-color: white;
+	max-width: 500px;
+	margin: auto;
+	margin-bottom: 300px;
+	border-radius: 20px;
+	padding: 2rem 1.5rem 4rem;
+	background-image: url(../images/bg-pattern-mobile.svg);
+	background-repeat: no-repeat;
+	background-position: left 50% top -5px;
+	box-shadow: 0 20px 20px rgb(111, 79, 148);
+}
+
+.image {
+	width: 100%;
+	height: 200px;
+	background-image: url(../images/illustration-woman-online-mobile.svg);
+	background-repeat: no-repeat;
+	margin-top: -11rem;
+	background-position: left 40% top 0;
+}
+
+/* styling the buttons that are used to open and close the accordion panel */
+.accordion {
+	display: flex;
+	background-color: white;
+	color: var(--vddB);
+	cursor: pointer;
+	font-size: 13px;
+	padding: 18px 0;
+	width: 100%;
+	text-align: left;
+	border: none;
+	outline: none;
+	transition: 0.4s;
+	border-bottom: 1px solid var(--lgBlue);
+}
+
+.accordion.active {
+	border-bottom: none;
+}
+
+.accordion:after {
+	content: url(../images/icon-arrow-down.svg);
+	margin-left: auto;
+}
+
+.active:after {
+	content: url(../images/icon-arrow-down.svg);
+	transform: rotate(180deg);
+}
+
+/* add a effect to the button if its clicked on  */
+button.accordion.active {
+	font-weight: bold;
+}
+
+/* style the accordion panel. Note: hidden by default */
+.panel {
+	padding-bottom: 2rem;
+	background-color: white;
+	line-height: 14.4px;
+	color: var(--dgBlue);
+	display: none;
+	overflow: hidden;
+	max-height: 0px;
+	transition: max-height 0.3s;
+	transition-property: all;
+	border-bottom: 1px solid var(--lgBlue);
+}
+
+.content {
+	margin-top: 3rem;
+}
+
+.content h1 {
+	font-size: 32px;
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.footer {
+	font-size: 11px;
+	text-align: center;
+	color: rgb(180, 200, 243);
+}
+.footer a {
+	color: hsl(305, 85%, 80%);
+}
+
+@media (max-width: 375px) {
+	.image {
+		background-position: left -5px top 0;
+	}
+}
+
+@media (min-width: 900px) {
+	main {
+		padding: 150px 9rem 0;
+	}
+
+	.wrapper {
+		max-width: 850px;
+		display: grid;
+		padding: 2rem 2rem 6rem 1.5rem;
+		grid-template-areas: "image-Woman content";
+		grid-template-columns: 1fr 1fr;
+		background-image: url(../images/illustration-woman-online-desktop.svg),
+			url(../images/bg-pattern-desktop.svg);
+		background-position: top 40px left -67px, left -436px top -230px;
+		background-size: 400px auto, auto 750px;
+	}
+
+	.content h1 {
+		text-align: left;
+	}
+
+	.content {
+		max-width: 350px;
+	}
+
+	.image {
+		margin-left: -120px;
+		width: 100%;
+		height: 100%;
+		background-size: 160px auto;
+		background-image: url(../images/illustration-box-desktop.svg);
+		background-position: top 130px left 25px;
+		margin-top: 0;
+	}
+}
